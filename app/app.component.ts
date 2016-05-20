@@ -1,9 +1,9 @@
 ﻿import { Component } from '@angular/core';
-import { QuickHTTP } from "./directives/quick-http.component";
+// import { QuickHTTP } from "./directives/quick-http.component";
 
 @Component({
     selector: 'service-inspector',
     templateUrl: "/html/service-inspector.html",
-    directives: [QuickHTTP]
+   //  directives: [QuickHTTP]
 })
 export class AppComponent { }

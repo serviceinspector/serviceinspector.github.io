@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var quick_http_component_1 = require("./directives/quick-http.component");
+// import { QuickHTTP } from "./directives/quick-http.component";
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -17,7 +17,6 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'service-inspector',
             templateUrl: "/html/service-inspector.html",
-            directives: [quick_http_component_1.QuickHTTP]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

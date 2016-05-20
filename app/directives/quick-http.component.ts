@@ -1,15 +1,15 @@
-﻿import { Component } from '@angular/core';
-import { NgForm }    from '@angular/common';
+﻿//import { Component } from '@angular/core';
+//import { NgForm }    from '@angular/common';
 
-@Component({
-    selector: 'quick-http'
-})
+//@Component({
+//    selector: 'quick-http'
+//})
 
-export class QuickHTTP {
+//export class QuickHTTP {
     
-    submitted = false;
+//    submitted = false;
 
-    onSubmit() {
-        this.submitted = true;
-    }        
-}
+//    onSubmit() {
+//        this.submitted = true;
+//    }        
+//}
