@@ -3,27 +3,36 @@ var concat = require('gulp-concat');
 var path = require("path");
 var Builder = require('systemjs-builder');
 
-var builder = new Builder('./', './systemjs.config.js');
+class TaskRunner {
 
-var libs = [
-    "node_modules/es6-shim/es6-shim.min.js",
-    "node_modules/zone.js/dist/zone.js",
-    "node_modules/reflect-metadata/Reflect.js",
-    "node_modules/systemjs/dist/system.src.js",
-    "node_modules/jquery/dist/jquery.js",
-    "node_modules/tether/dist/js/tether.js",
+    private static builder = new Builder('./', './systemjs.config.js');
 
-    "node_modules/bootstrap/dist/js/bootstrap.js"
-];
+    private static input = './app/main.js';
+    
+    private static output = './dist/modules.js';
 
-var x = 1;
-gulp.task('build-libs', () => {
+    private static libs = [
+        "node_modules/es6-shim/es6-shim.min.js",
+        "node_modules/zone.js/dist/zone.js",
+        "node_modules/reflect-metadata/Reflect.js",
+        "node_modules/systemjs/dist/system.src.js",
+        "node_modules/jquery/dist/jquery.js",
+        "node_modules/tether/dist/js/tether.js",
+        "node_modules/bootstrap/dist/js/bootstrap.js"
+    ];
 
-    gulp.src(libs)
-        .pipe(concat('libs.js'))
-        .pipe(gulp.dest('./dist'));
+    public static runTasks() {
 
-    builder.trace('./app/**/*')
-        .then((tree) => { return builder.bundle(tree, './dist/modules.js'); });
+        gulp.task('build-libs', () => {
 
-});
+            gulp.src(TaskRunner.libs)
+                .pipe(concat('libs.js'))
+                .pipe(gulp.dest('./dist'));
+
+            TaskRunner.builder.trace(TaskRunner.input)
+                .then((tree) => { return TaskRunner.builder.bundle(tree, TaskRunner.output); });
+        });
+    }
+}
+
+TaskRunner.runTasks();

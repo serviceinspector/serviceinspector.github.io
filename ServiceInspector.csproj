@@ -231,7 +231,9 @@
     <Content Include="node_modules\tether\src\js\shift.js" />
     <Content Include="node_modules\tether\src\js\tether.js" />
     <Content Include="node_modules\tether\src\js\utils.js" />
-    <Content Include="systemjs.config.js" />
+    <Content Include="systemjs.config.js">
+      <DependentUpon>systemjs.config.ts</DependentUpon>
+    </Content>
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +380,7 @@
     </None>
     <TypeScriptCompile Include="app\services\request.service.ts" />
     <TypeScriptCompile Include="gulpfile.ts" />
+    <TypeScriptCompile Include="systemjs.config.ts" />
     <TypeScriptCompile Include="typings\browser.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\es6-shim\index.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\jasmine\index.d.ts" />
