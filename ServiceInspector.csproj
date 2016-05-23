@@ -22,6 +22,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
     <Content Include="app\app.component.js">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
@@ -39,6 +41,11 @@
     </Content>
     <Content Include="css\styles.min.css">
       <DependentUpon>styles.css</DependentUpon>
+    </Content>
+    <Content Include="dist\libs.js" />
+    <Content Include="dist\modules.js" />
+    <Content Include="gulpfile.js">
+      <DependentUpon>gulpfile.ts</DependentUpon>
     </Content>
     <Content Include="html\service-inspector.html" />
     <Content Include="index.html" />
@@ -372,6 +379,12 @@
     <Content Include="node_modules\tether\src\css\tether-theme-basic.sass" />
     <Content Include="node_modules\tether\src\css\tether.sass" />
     <Content Include="README.md" />
+    <Content Include="gulpfile.js.map">
+      <DependentUpon>gulpfile.js</DependentUpon>
+    </Content>
+    <Content Include="systemjs.config.js.map">
+      <DependentUpon>systemjs.config.js</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -390,9 +403,7 @@
     <TypeScriptCompile Include="typings\main\ambient\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\main\ambient\node\index.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dist\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
