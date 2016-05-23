@@ -7,12 +7,12 @@ var TaskRunner = (function () {
     }
     TaskRunner.runTasks = function () {
         gulp.task('build-libs', function () {
-            gulp.src(TaskRunner.libs)
-                .pipe(concat('libs.js'))
-                .pipe(gulp.dest('./dist'));
+            //gulp.src(TaskRunner.libs)
+            //    .pipe(concat('libs.js'))
+            //    .pipe(gulp.dest('./dist'));
             gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
                 .pipe(gulp.dest('./css'));
-            TaskRunner.builder.trace(TaskRunner.input)
+            TaskRunner.builder.trace([TaskRunner.libs, TaskRunner.input])
                 .then(function (tree) { return TaskRunner.builder.bundle(tree, TaskRunner.output); });
         });
     };
@@ -26,7 +26,8 @@ var TaskRunner = (function () {
         "node_modules/systemjs/dist/system.src.js",
         "node_modules/jquery/dist/jquery.js",
         "node_modules/tether/dist/js/tether.js",
-        "node_modules/bootstrap/dist/js/bootstrap.js"
+        "node_modules/bootstrap/dist/js/bootstrap.js",
+        "node_modules/systemjs/dist/systemjs.js"
     ];
     return TaskRunner;
 }());
