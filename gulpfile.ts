@@ -33,7 +33,7 @@ class TaskRunner {
             gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
                 .pipe(gulp.dest('./css'));
 
-            TaskRunner.builder.trace([TaskRunner.libs, TaskRunner.input])
+            TaskRunner.builder.trace(TaskRunner.input)
                 .then((tree) => { return TaskRunner.builder.bundle(tree, TaskRunner.output); });
         });
     }

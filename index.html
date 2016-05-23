@@ -17,5 +17,8 @@
 	<script src="dist/libs.js"></script>
 	<script src="dist/modules.js"></script>
 	<script src="systemjs.config.js"></script>
+	<script>
+		System.import('app').catch(function (err) { console.error(err); });
+	</script>
 </body>
 </html>

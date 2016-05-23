@@ -9,7 +9,6 @@ var SystemJSConfig = (function () {
         System.config({ map: SystemJSConfig.map, packages: SystemJSConfig.packages });
     };
     SystemJSConfig.start = function () {
-        System.import('app').catch(function (err) { console.error(err); });
     };
     // map tells the System loader where to look for things
     SystemJSConfig.map = {
