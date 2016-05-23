@@ -10,6 +10,8 @@ var TaskRunner = (function () {
             gulp.src(TaskRunner.libs)
                 .pipe(concat('libs.js'))
                 .pipe(gulp.dest('./dist'));
+            gulp.src("./node_modules/bootstrap/dist/css/bootstrap.css")
+                .pipe(gulp.dest('./css/bootstrap.css'));
             TaskRunner.builder.trace(TaskRunner.input)
                 .then(function (tree) { return TaskRunner.builder.bundle(tree, TaskRunner.output); });
         });
