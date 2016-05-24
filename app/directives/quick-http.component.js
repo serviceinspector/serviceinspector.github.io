@@ -22,22 +22,31 @@ System.register(['@angular/core', '../services/request.service'], function(expor
             }],
         execute: function() {
             QuickHTTP = (function () {
-                function QuickHTTP(element) {
+                function QuickHTTP(service, element) {
+                    this.input = "";
                     this.element = element;
+                    this.service = service;
                 }
-                QuickHTTP.prototype.onSubmit = function () {
-                    request_service_1.WebRequestService.get(this.input)
+                QuickHTTP.prototype.submit = function () {
+                    debugger;
+                    if (!this.input.startsWith('http://') && !this.input.startsWith('https://')) {
+                        this.input = 'http://' + this.input;
+                    }
+                    this.service.get(this.input)
                         .then(this.onGetResult.bind(this));
                 };
                 QuickHTTP.prototype.onGetResult = function (result) {
                     console.log(result);
+                };
+                QuickHTTP.prototype.isButtonDisabled = function () {
+                    return this.input && this.input.length;
                 };
                 QuickHTTP = __decorate([
                     core_1.Component({
                         selector: 'quick-http',
                         templateUrl: '/html/quick-http.html'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [request_service_1.WebRequestService, core_1.ElementRef])
                 ], QuickHTTP);
                 return QuickHTTP;
             }());

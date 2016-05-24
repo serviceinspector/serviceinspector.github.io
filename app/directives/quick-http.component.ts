@@ -8,23 +8,37 @@ import { WebRequestService } from '../services/request.service';
 
 export class QuickHTTP {
 
-    public input: string;
+    private input: string = "";
 
-    public element: ElementRef;
+    private element: ElementRef;
 
-    constructor(element: ElementRef) {
+    private service: WebRequestService;
+
+    constructor(service: WebRequestService, element: ElementRef) {
 
         this.element = element;
+        this.service = service;
     }
 
-    public onSubmit() {
+    private submit() {
 
-        WebRequestService.get(this.input)
+        debugger;
+       
+        if (!this.input.startsWith('http://') && !this.input.startsWith('https://')) {
+            this.input = 'http://' + this.input;
+        }
+
+        this.service.get(this.input)
             .then(this.onGetResult.bind(this));
     }
 
-    public onGetResult(result) {
+    private onGetResult(result) {
 
         console.log(result);
+    }
+
+    private isButtonDisabled() {
+
+        return this.input && this.input.length;
     }
 }

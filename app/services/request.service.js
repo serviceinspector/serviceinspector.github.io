@@ -25,14 +25,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/toPromise'
             WebRequestService = (function () {
                 function WebRequestService(http) {
                     this.http = http;
-                    WebRequestService.http = http;
                 }
-                WebRequestService.get = function (url) {
-                    return WebRequestService.http.get(url)['toPromise']() // TypeScript hack for broken import
+                WebRequestService.prototype.get = function (url) {
+                    return this.http.get(url)['toPromise']() // TypeScript def hack for broken import
                         .then(function (response) { return response.json().data; })
-                        .catch(WebRequestService.onError);
+                        .catch(this.onError);
                 };
-                WebRequestService.onError = function (error) {
+                WebRequestService.prototype.onError = function (error) {
                     console.log(error);
                 };
                 WebRequestService = __decorate([

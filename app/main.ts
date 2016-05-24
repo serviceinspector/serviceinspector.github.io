@@ -7,4 +7,4 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { AppComponent } from './app.component';
 
 enableProdMode();
-bootstrap(AppComponent);
+bootstrap(AppComponent, [HTTP_PROVIDERS]);

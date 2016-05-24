@@ -2,10 +2,12 @@
 
 	<input class="form-control"
 		   [(ngModel)]="input"
+		   (keyup.enter)="submit()"
 		   type="text" 
 		   placeholder="Quick HTTP Get Request">
 
 	<button class="btn btn-secondary-outline"
+			[disabled]="!input.length"
 			(click)="submit()"
 			type="button">SEND</button>
 
