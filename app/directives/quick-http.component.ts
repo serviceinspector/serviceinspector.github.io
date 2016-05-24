@@ -1,15 +1,30 @@
-﻿//import { Component } from '@angular/core';
-//import { NgForm }    from '@angular/common';
+﻿import { Component, ElementRef } from '@angular/core';
+import { WebRequestService } from '../services/request.service';
 
-//@Component({
-//    selector: 'quick-http'
-//})
+@Component({
+    selector: 'quick-http',
+    templateUrl: '/html/quick-http.html'
+})
 
-//export class QuickHTTP {
-    
-//    submitted = false;
+export class QuickHTTP {
 
-//    onSubmit() {
-//        this.submitted = true;
-//    }        
-//}
+    public input: string;
+
+    public element: ElementRef;
+
+    constructor(element: ElementRef) {
+
+        this.element = element;
+    }
+
+    public onSubmit() {
+
+        WebRequestService.get(this.input)
+            .then(this.onGetResult.bind(this));
+    }
+
+    public onGetResult(result) {
+
+        console.log(result);
+    }
+}

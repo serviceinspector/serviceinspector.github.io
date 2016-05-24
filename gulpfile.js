@@ -20,6 +20,7 @@ var TaskRunner = (function () {
     TaskRunner.input = './app/main.js';
     TaskRunner.output = './dist/modules.js';
     TaskRunner.libs = [
+        'node_modules/rxjs',
         "node_modules/es6-shim/es6-shim.min.js",
         "node_modules/zone.js/dist/zone.js",
         "node_modules/reflect-metadata/Reflect.js",

@@ -47,6 +47,7 @@
     <Content Include="gulpfile.js">
       <DependentUpon>gulpfile.ts</DependentUpon>
     </Content>
+    <Content Include="html\quick-http.html" />
     <Content Include="html\service-inspector.html" />
     <Content Include="index.html" />
     <Content Include="node_modules\bootstrap\dist\css\bootstrap.css" />
